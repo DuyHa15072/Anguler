@@ -1,0 +1,23 @@
+<button (click)="onHandleClick()">click</button>
+{{isStatus}}
+<input type="text" [(ngModel)]="productName" />{{productName}}
+
+<div *ngIf="isStatus">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let product of productsList'>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.status ? "còn hàng" : "hết hàng"}}</td>
+        <td><button type="button" class="btn btn-danger" (click)="onHandleDelete(product.id)">xóa</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
